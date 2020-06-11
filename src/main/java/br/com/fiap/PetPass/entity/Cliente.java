@@ -24,7 +24,10 @@ public class Cliente {
 
     @Column
     private Integer documento;
-
+    
+    @Column
+    private String planoId;
+    
     public Long getId() {
         return id;
     }
@@ -47,6 +50,14 @@ public class Cliente {
 
     public void setDocumento(Integer documento) {
         this.documento = documento;
+    }
+    
+    public String getPlanoId() {
+    	return planoId;
+    }
+    
+    public void setPlanoId(String planoId) {
+    	this.planoId = planoId;
     }
 
 }

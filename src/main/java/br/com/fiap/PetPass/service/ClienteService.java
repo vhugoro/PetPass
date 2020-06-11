@@ -11,6 +11,8 @@ public interface ClienteService {
     ClienteDTO findByDocumento(Integer inDocumento);
 
     ClienteDTO findByNome(String inNomeCliente);
+    
+    ClienteDTO findByPlanoId(String inPlanoId);
 
     List<ClienteDTO> findAll();
 

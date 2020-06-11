@@ -9,6 +9,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     Cliente findByDocumento(Integer documento);
 
     Cliente findByNome(String Nome);
-
-
+    
+    Cliente findByPlanoId(String planoId);
 }

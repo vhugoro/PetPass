@@ -63,6 +63,11 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
+    public ClienteDTO findByPlanoId(String inPlanoId) {
+        return this.handleReturnedCliente(repository.findByPlanoId(inPlanoId));
+    }
+
+    @Override
     public List<ClienteDTO> findAll() {
         return this.handleReturnedClienteList(repository.findAll());
     }
