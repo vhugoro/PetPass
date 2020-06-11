@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.fiap.PetPass.converter.ClienteConverter;
 import br.com.fiap.PetPass.dto.ClienteDTO;
 import br.com.fiap.PetPass.entity.Cliente;
+import br.com.fiap.PetPass.enums.PlanoEnum;
 import br.com.fiap.PetPass.repository.ClienteRepository;
 import br.com.fiap.PetPass.service.ClienteService;
 
@@ -63,8 +64,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ClienteDTO findByPlanoId(String inPlanoId) {
-        return this.handleReturnedCliente(repository.findByPlanoId(inPlanoId));
+    public ClienteDTO findByPlano(PlanoEnum plano) {
+        return this.handleReturnedCliente(repository.findByPlano(plano));
     }
 
     @Override

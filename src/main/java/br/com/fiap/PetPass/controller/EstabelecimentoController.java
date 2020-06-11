@@ -33,12 +33,12 @@ public class EstabelecimentoController {
 		return this.service.findById(id);
 	}
 	
-	@GetMapping
+	@GetMapping("/documento")
 	public EstabelecimentoDTO getByDocumento(@RequestParam Integer documento) {
 		return this.service.findByDocumento(documento);
 	}
 	
-	@GetMapping
+	@GetMapping("/nome")
 	public EstabelecimentoDTO getByNome(@RequestParam String nome) {
 		return this.service.findByNome(nome);
 	}

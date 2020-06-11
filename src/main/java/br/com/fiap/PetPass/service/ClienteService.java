@@ -3,6 +3,7 @@ package br.com.fiap.PetPass.service;
 import java.util.List;
 
 import br.com.fiap.PetPass.dto.ClienteDTO;
+import br.com.fiap.PetPass.enums.PlanoEnum;
 
 public interface ClienteService {
 
@@ -12,7 +13,7 @@ public interface ClienteService {
 
     ClienteDTO findByNome(String inNomeCliente);
     
-    ClienteDTO findByPlanoId(String inPlanoId);
+    ClienteDTO findByPlano(PlanoEnum plano);
 
     List<ClienteDTO> findAll();
 

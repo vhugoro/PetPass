@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import br.com.fiap.PetPass.enums.PlanoEnum;
+
 @Entity
 @Table(name = "TB_CLIENTES")
 @EntityListeners(AuditingEntityListener.class)
@@ -26,7 +28,7 @@ public class Cliente {
     private Integer documento;
     
     @Column
-    private String planoId;
+    private PlanoEnum plano;
     
     public Long getId() {
         return id;
@@ -52,12 +54,12 @@ public class Cliente {
         this.documento = documento;
     }
     
-    public String getPlanoId() {
-    	return planoId;
+    public PlanoEnum getPlano() {
+    	return plano;
     }
     
-    public void setPlanoId(String planoId) {
-    	this.planoId = planoId;
+    public void setPlano(PlanoEnum plano) {
+    	this.plano = plano;
     }
 
 }

@@ -11,9 +11,9 @@ public class EstabelecimentoDTO implements Serializable {
 	
 	private Long id;
 	private String nome;
-	private int documento;
-	private int latitude;
-	private int longitude;
+	private Long documento;
+	private double latitude;
+	private double longitude;
 	private PlanoEnum plano;
 	
 	public EstabelecimentoDTO(Estabelecimento estabelecimento) {
@@ -40,27 +40,27 @@ public class EstabelecimentoDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	public int getDocumento() {
+	public Long getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(Long documento) {
 		this.documento = documento;
 	}
 
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 

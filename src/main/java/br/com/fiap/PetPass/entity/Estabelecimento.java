@@ -25,13 +25,13 @@ public class Estabelecimento {
 	private String nome;
 	
 	@Column
-	private int documento;
+	private Long documento;
 	
 	@Column
-	private int latitude;
+	private double latitude;
 	
 	@Column
-	private int longitude;
+	private double longitude;
 	
 	@Column
 	private PlanoEnum plano;
@@ -52,27 +52,27 @@ public class Estabelecimento {
 		this.nome = nome;
 	}
 
-	public int getDocumento() {
+	public Long getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(Long documento) {
 		this.documento = documento;
 	}
 
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
