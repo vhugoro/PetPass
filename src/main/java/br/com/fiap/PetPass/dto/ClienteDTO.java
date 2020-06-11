@@ -11,24 +11,28 @@ public class ClienteDTO implements Serializable {
 	private Long    id;
     private String  nome;
     private Integer documento;
+    private String  planoId;
 
     public ClienteDTO() { }
 
-    public ClienteDTO(String nome ,Integer documento) {
+    public ClienteDTO(String nome ,Integer documento ,String planoId) {
         this.nome      = nome;
         this.documento = documento;
+        this.planoId   = planoId;
     }
 
-    public ClienteDTO(Long id ,String nome ,Integer documento) {
+    public ClienteDTO(Long id ,String nome ,Integer documento ,String planoId) {
         this.id        = id;
         this.nome      = nome;
         this.documento = documento;
+        this.planoId   = planoId;
     }
 
     public ClienteDTO(Cliente cliente) {
         this.id        = cliente.getId();
         this.nome      = cliente.getNome();
         this.documento = cliente.getDocumento();
+        this.planoId   = cliente.getPlanoId();
     }
 
     public Long getId() {
@@ -55,12 +59,21 @@ public class ClienteDTO implements Serializable {
         this.documento = documento;
     }
 
-    @Override
+	public String getPlanoId() {
+		return planoId;
+	}
+
+	public void setPlanoId(String planoId) {
+		this.planoId = planoId;
+	}
+
+	@Override
     public String toString() {
         return new StringJoiner(", " ,ClienteDTO.class.getSimpleName() + "[" ,"]")
                 .add("id=" + id)
                 .add("nome='" + nome + "'")
                 .add("documento=" + documento)
+                .add("planoId='" + planoId + "'")
                 .toString();
     }
 
