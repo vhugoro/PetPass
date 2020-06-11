@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import br.com.fiap.PetPass.enuns.PlanoEnum;
+import br.com.fiap.PetPass.enums.PlanoEnum;
 
 @Entity
 @Table(name = "TB_ESTABELECIMENTO")
