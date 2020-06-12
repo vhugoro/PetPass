@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.StringJoiner;
 
 import br.com.fiap.PetPass.entity.Cliente;
+import br.com.fiap.PetPass.enums.PlanoEnum;
 
 public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -11,28 +12,28 @@ public class ClienteDTO implements Serializable {
 	private Long    id;
     private String  nome;
     private Integer documento;
-    private String  planoId;
+    private PlanoEnum plano;
 
     public ClienteDTO() { }
 
-    public ClienteDTO(String nome ,Integer documento ,String planoId) {
+    public ClienteDTO(String nome ,Integer documento ,PlanoEnum plano) {
         this.nome      = nome;
         this.documento = documento;
-        this.planoId   = planoId;
+        this.plano   = plano;
     }
 
-    public ClienteDTO(Long id ,String nome ,Integer documento ,String planoId) {
+    public ClienteDTO(Long id ,String nome ,Integer documento ,PlanoEnum plano) {
         this.id        = id;
         this.nome      = nome;
         this.documento = documento;
-        this.planoId   = planoId;
+        this.plano   = plano;
     }
 
     public ClienteDTO(Cliente cliente) {
         this.id        = cliente.getId();
         this.nome      = cliente.getNome();
         this.documento = cliente.getDocumento();
-        this.planoId   = cliente.getPlanoId();
+        this.plano     = cliente.getPlano();
     }
 
     public Long getId() {
@@ -59,12 +60,12 @@ public class ClienteDTO implements Serializable {
         this.documento = documento;
     }
 
-	public String getPlanoId() {
-		return planoId;
+	public PlanoEnum getPlano() {
+		return plano;
 	}
 
-	public void setPlanoId(String planoId) {
-		this.planoId = planoId;
+	public void setPlano(PlanoEnum plano) {
+		this.plano = plano;
 	}
 
 	@Override
@@ -73,7 +74,7 @@ public class ClienteDTO implements Serializable {
                 .add("id=" + id)
                 .add("nome='" + nome + "'")
                 .add("documento=" + documento)
-                .add("planoId='" + planoId + "'")
+                .add("plano='" + plano + "'")
                 .toString();
     }
 

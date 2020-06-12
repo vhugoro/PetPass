@@ -27,7 +27,7 @@ public class ClienteConverter {
         cliente.setId(inCliente.getId());
         cliente.setNome(inCliente.getNome());
         cliente.setDocumento(inCliente.getDocumento());
-        cliente.setPlanoId(inCliente.getPlanoId());
+        cliente.setPlano(inCliente.getPlano());
 
         return cliente;
     }
