@@ -14,6 +14,8 @@ public interface ClienteService {
     ClienteDTO findByNome(String inNomeCliente);
     
     ClienteDTO findByPlano(PlanoEnum plano);
+    
+    ClienteDTO findById(Long id);
 
     List<ClienteDTO> findAll();
 

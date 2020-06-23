@@ -72,6 +72,11 @@ public class ClienteServiceImpl implements ClienteService {
     public List<ClienteDTO> findAll() {
         return this.handleReturnedClienteList(repository.findAll());
     }
+    
+    @Override
+    public ClienteDTO findById(Long id) {
+    	return converter.toDTO(repository.findById(id).orElse(null));
+    }
 
     @Override
     public ClienteDTO create(ClienteDTO inCliente) {
