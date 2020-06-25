@@ -1,5 +1,6 @@
 package br.com.fiap.PetPass.converter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,16 +13,32 @@ import br.com.fiap.PetPass.entity.Cliente;
 public class ClienteConverter {
 
     public ClienteDTO toDTO(Cliente inCliente) {
+    	if(inCliente == null) {
+    		return null;
+    	}    	
+    	
         return new ClienteDTO(inCliente);
     }
 
     public List<ClienteDTO> toListDTO(List<Cliente> inClientes) {
-        return inClientes.stream()
-                         .map(this::toDTO)
-                         .collect(Collectors.toList());
+    	List<ClienteDTO> clientes = new ArrayList();
+    	
+    	if(!inClientes.isEmpty()) {
+    		clientes.addAll(inClientes.stream()
+                    .map(this::toDTO)
+                    .collect(Collectors.toList()));
+    	}
+    	
+    	
+        return clientes;
     }
 
     public Cliente toEntity(ClienteDTO inCliente) {
+    	
+    	if(inCliente == null) {
+    		return null;
+    	}
+    	
         Cliente cliente = new Cliente();
 
         cliente.setId(inCliente.getId());
@@ -33,9 +50,15 @@ public class ClienteConverter {
     }
 
     public List<Cliente> toListEntity(List<ClienteDTO> inClientes) {
-        return inClientes.stream()
-                         .map(this::toEntity)
-                         .collect(Collectors.toList());
+    	List<Cliente> clientes = new ArrayList();
+    	
+    	if(!inClientes.isEmpty()) {
+    		clientes.addAll(inClientes.stream()
+                    .map(this::toEntity)
+                    .collect(Collectors.toList()));
+    	}
+    	
+        return clientes;
     }
 
 }

@@ -21,4 +21,4 @@ INSERT
 VALUES ('Mariana Menezes' ,98532 ,2);
 INSERT
   INTO TB_CLIENTES (NOME ,DOCUMENTO ,PLANO)
-VALUES ('Rita de Cassia' ,54512 ,3);
+VALUES ('Rita de Cassia' ,54512 ,0);

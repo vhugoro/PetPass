@@ -16,7 +16,29 @@ public class EstabelecimentoDTO implements Serializable {
 	private double longitude;
 	private PlanoEnum plano;
 	
+	public EstabelecimentoDTO() { }
+	
+	public EstabelecimentoDTO(Long id, String nome, Long documento, double latitude, double longitude,
+			PlanoEnum plano) {
+		this.id = id;
+		this.nome = nome;
+		this.documento = documento;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.plano = plano;
+	}
+
+	public EstabelecimentoDTO(String nome, Long documento, double latitude, double longitude,
+			PlanoEnum plano) {
+		this.nome = nome;
+		this.documento = documento;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.plano = plano;
+	}
+
 	public EstabelecimentoDTO(Estabelecimento estabelecimento) {
+		this.id = estabelecimento.getId();
 		this.nome = estabelecimento.getNome();
 		this.documento = estabelecimento.getDocumento();
 		this.latitude = estabelecimento.getLatitude();

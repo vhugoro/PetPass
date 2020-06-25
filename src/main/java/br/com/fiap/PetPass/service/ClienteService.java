@@ -7,20 +7,20 @@ import br.com.fiap.PetPass.enums.PlanoEnum;
 
 public interface ClienteService {
 
-    ClienteDTO find(ClienteDTO inCliente);
+    ClienteDTO findByDocumento(Integer documento);
 
-    ClienteDTO findByDocumento(Integer inDocumento);
-
-    ClienteDTO findByNome(String inNomeCliente);
+    ClienteDTO findByNome(String nome);
     
-    ClienteDTO findByPlano(PlanoEnum plano);
+    List<ClienteDTO> findByPlano(PlanoEnum plano);
+    
+    ClienteDTO findById(Long id);
 
     List<ClienteDTO> findAll();
 
-    ClienteDTO create(ClienteDTO inCliente);
+    ClienteDTO create(ClienteDTO clienteDTO);
 
-    ClienteDTO update(ClienteDTO inCliente);
+    ClienteDTO update(ClienteDTO clienteDTO);
 
-    void delete(ClienteDTO inCliente);
+    void delete(ClienteDTO clienteDTO);
 
 }

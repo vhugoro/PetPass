@@ -28,7 +28,7 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
 	}
 
 	@Override
-	public EstabelecimentoDTO findByDocumento(Integer documento) {
+	public EstabelecimentoDTO findByDocumento(Long documento) {
 		Estabelecimento estabelecimento = this.repository.findByDocumento(documento);
 		return this.converter.toDTO(estabelecimento);
 	}

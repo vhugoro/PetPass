@@ -6,7 +6,7 @@ import br.com.fiap.PetPass.entity.Estabelecimento;
 
 public interface EstabelecimentoRepository extends JpaRepository<Estabelecimento, Long> {
 	
-	Estabelecimento findByDocumento(Integer documento);
+	Estabelecimento findByDocumento(Long documento);
 	
 	Estabelecimento findByNome(String nome);
 
