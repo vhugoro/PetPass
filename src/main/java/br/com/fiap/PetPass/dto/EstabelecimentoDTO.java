@@ -17,6 +17,7 @@ public class EstabelecimentoDTO implements Serializable {
 	private PlanoEnum plano;
 	
 	public EstabelecimentoDTO(Estabelecimento estabelecimento) {
+		this.id = estabelecimento.getId();
 		this.nome = estabelecimento.getNome();
 		this.documento = estabelecimento.getDocumento();
 		this.latitude = estabelecimento.getLatitude();

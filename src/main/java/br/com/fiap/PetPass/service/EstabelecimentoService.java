@@ -8,7 +8,7 @@ public interface EstabelecimentoService {
 	
 	EstabelecimentoDTO find(EstabelecimentoDTO estabelecimento);
 
-	EstabelecimentoDTO findByDocumento(Integer documento);
+	EstabelecimentoDTO findByDocumento(Long documento);
 
 	EstabelecimentoDTO findByNome(String nomeEstabelecimento);
 

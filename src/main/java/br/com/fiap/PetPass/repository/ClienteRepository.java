@@ -1,5 +1,7 @@
 package br.com.fiap.PetPass.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.fiap.PetPass.entity.Cliente;
@@ -11,5 +13,5 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     Cliente findByNome(String Nome);
     
-    Cliente findByPlano(PlanoEnum plano);
+    List<Cliente> findAllByPlano(PlanoEnum plano);
 }

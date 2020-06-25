@@ -21,56 +21,24 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private ClienteConverter converter;
 
-    private ClienteDTO handleReturnedCliente(Cliente inCliente) {
-         ClienteDTO outCliente = null;
-
-        if (inCliente != null) {
-            outCliente = converter.toDTO(inCliente);
-        }
-
-        return outCliente;
-    }
-
-    private List<ClienteDTO> handleReturnedClienteList(List<Cliente> inClientes) {
-        List<ClienteDTO> outClientes = null;
-
-        if (!inClientes.isEmpty()) {
-            outClientes = converter.toListDTO(inClientes);
-        }
-
-        return outClientes;
-    }
-
-    private ClienteDTO saveOrUpdate(ClienteDTO inCliente) {
-        Cliente save = repository.save(converter.toEntity(inCliente));
-
-        return converter.toDTO(save);
+    @Override
+    public ClienteDTO findByDocumento(Integer documento) {
+        return this.converter.toDTO(repository.findByDocumento(documento));
     }
 
     @Override
-    public ClienteDTO find(ClienteDTO inCliente) {
-        return this.handleReturnedCliente(repository.findById(inCliente.getId())
-                                                    .orElse(null));
+    public ClienteDTO findByNome(String nome) {
+        return this.converter.toDTO(repository.findByNome(nome));
     }
 
     @Override
-    public ClienteDTO findByDocumento(Integer inDocumento) {
-        return this.handleReturnedCliente(repository.findByDocumento(inDocumento));
-    }
-
-    @Override
-    public ClienteDTO findByNome(String inNomeCliente) {
-        return this.handleReturnedCliente(repository.findByNome(inNomeCliente));
-    }
-
-    @Override
-    public ClienteDTO findByPlano(PlanoEnum plano) {
-        return this.handleReturnedCliente(repository.findByPlano(plano));
+    public List<ClienteDTO> findByPlano(PlanoEnum plano) {
+        return this.converter.toListDTO(repository.findAllByPlano(plano));
     }
 
     @Override
     public List<ClienteDTO> findAll() {
-        return this.handleReturnedClienteList(repository.findAll());
+        return this.converter.toListDTO(repository.findAll());
     }
     
     @Override
@@ -79,18 +47,20 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ClienteDTO create(ClienteDTO inCliente) {
-        return this.saveOrUpdate(inCliente);
+    public ClienteDTO create(ClienteDTO clienteDTO) {
+    	Cliente cliente = this.repository.save(converter.toEntity(clienteDTO));
+        return this.converter.toDTO(cliente);
     }
 
     @Override
-    public ClienteDTO update(ClienteDTO inCliente) {
-        return this.saveOrUpdate(inCliente);
+    public ClienteDTO update(ClienteDTO clienteDTO) {
+    	Cliente cliente = this.repository.save(this.converter.toEntity(clienteDTO));
+        return this.converter.toDTO(cliente);
     }
 
     @Override
-    public void delete(ClienteDTO inCliente) {
-        repository.delete(converter.toEntity(inCliente));
+    public void delete(ClienteDTO clienteDTO) {
+        repository.delete(converter.toEntity(clienteDTO));
     }
 
 }

@@ -3,6 +3,8 @@ package br.com.fiap.PetPass.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,23 +26,42 @@ public class ClienteController {
 	private ClienteService service;
 	
 	@GetMapping
-	public List<ClienteDTO> getAll() {
-		return service.findAll();
+	public ResponseEntity<List<ClienteDTO>> getAll() {
+		List<ClienteDTO> clientes = service.findAll();
+		
+		if(clientes.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(clientes);
 	}
 	
 	@GetMapping("{id}")
-	public ClienteDTO getById(@PathVariable Long id) {
-		return service.findById(id);
+	public ResponseEntity<ClienteDTO> getById(@PathVariable Long id) {
+		ClienteDTO cliente = service.findById(id);
+		
+		if(cliente == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(cliente);
 	}
 	
 	@GetMapping("/documento")
-	public ClienteDTO getByDocumento(@RequestParam Integer documento) {
-		return service.findByDocumento(documento);
+	public ResponseEntity<ClienteDTO> getByDocumento(@RequestParam Integer documento) {
+		ClienteDTO cliente = service.findByDocumento(documento);
+		
+		if(cliente == null) {
+			return ResponseEntity.notFound().build();
+		}
+				
+		return ResponseEntity.ok(cliente); 
 	}
 	
 	@PostMapping
-	public ClienteDTO create(@RequestBody ClienteDTO clienteDTO) {
-		return service.create(clienteDTO);
+	public ResponseEntity<ClienteDTO> create(@RequestBody ClienteDTO clienteDTO) {
+		ClienteDTO cliente = service.create(clienteDTO);
+		return ResponseEntity.ok(cliente);
 	}
 	
 	@PutMapping
@@ -48,10 +69,17 @@ public class ClienteController {
 		return service.update(clienteDTO);
 	}
 	
-	@DeleteMapping
-	public void delete(@PathVariable Long id) {
+	@DeleteMapping("{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id) {
 		ClienteDTO clienteDTO = service.findById(id);
+		
+		if(clienteDTO == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
 		service.delete(clienteDTO);
+		return ResponseEntity.ok(id);
+		
 	}
 	
 }
