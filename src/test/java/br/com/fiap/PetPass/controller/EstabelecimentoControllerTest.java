@@ -20,8 +20,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ClienteControllerTest {
-
+public class EstabelecimentoControllerTest {
+	
 	@Autowired
 	public WebApplicationContext context;
 	
@@ -34,59 +34,61 @@ public class ClienteControllerTest {
 	
 	@Test
 	public void testaRequisicaoPorIdSucesso() throws Exception { 
-		String url = "/clientes/1";
+		String url = "/estabelecimentos/1";
 		this.mvc.perform(get(url))
 					.andExpect(status().isOk())
-					.andExpect(jsonPath("nome", equalTo("Jose Almeida")));
+					.andExpect(jsonPath("nome", equalTo("Pets Dogs")));
 	}
 	
 	@Test
 	public void testaRequisicaoPorIdFalha() throws Exception { 
-		String url = "/clientes/0";
+		String url = "/estabelecimentos/0";
 		this.mvc.perform(get(url))
 					.andExpect(status().isNotFound());
 	}
 	
 	@Test
 	public void testaRequisicaoGetAll() throws Exception { 
-		String url = "/clientes";
+		String url = "/estabelecimentos";
 		this.mvc.perform(get(url))
 					.andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testaRequisicaoPorDocumentoSucesso() throws Exception { 
-		String url = "/clientes/documento?documento=53214";
+		String url = "/estabelecimentos/documento?documento=11111111111";
 		this.mvc.perform(get(url))
 					.andExpect(status().isOk())
-					.andExpect(jsonPath("nome", equalTo("Jose Almeida")));
+					.andExpect(jsonPath("nome", equalTo("Pets Dogs")));
 	}
 	
 	@Test
 	public void testaRequisicaoPorDocumentoFalha() throws Exception { 
-		String url = "/clientes/documento?documento=00000";
+		String url = "/estabelecimentos/documento?documento=00000";
 		this.mvc.perform(get(url))
 					.andExpect(status().isNotFound());
 	}
 	
 	@Test
 	public void testaDeleteFalha() throws Exception { 
-		String url = "/clientes/0";
+		String url = "/estabelecimentos/0";
 		this.mvc.perform(delete(url))
 					.andExpect(status().isNotFound());
 	}
 	
 	@Test
 	public void testaPostSucesso() throws Exception { 
-		String url = "/clientes";
+		String url = "/estabelecimentos";
 		this.mvc.perform(post(url)
 				.content("{\n" + 
-					"	\"nome\": \"Marcos\",\n" + 
-					"	\"documento\": 12124,\n" + 
-					"	\"plano\": \"PRATA\"\n" + 
-					"}")
+						"	\"nome\": \"Teste\",\n" + 
+						"    \"documento\": 11111111112,\n" + 
+						"    \"latitude\": -23.6741565,\n" + 
+						"    \"longitude\": -46.7082601,\n" + 
+						"    \"plano\": \"OURO\"\n" + 
+						"}")
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isCreated());
 	}
-	
+
 }
