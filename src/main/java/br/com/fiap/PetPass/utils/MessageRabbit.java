@@ -1,4 +1,4 @@
-package br.com.fiap.PetPass.service;
+package br.com.fiap.PetPass.utils;
 
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

@@ -11,7 +11,7 @@ import br.com.fiap.PetPass.entity.Cliente;
 import br.com.fiap.PetPass.enums.PlanoEnum;
 import br.com.fiap.PetPass.repository.ClienteRepository;
 import br.com.fiap.PetPass.service.ClienteService;
-import br.com.fiap.PetPass.service.MessageRabbit;
+import br.com.fiap.PetPass.utils.MessageRabbit;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
