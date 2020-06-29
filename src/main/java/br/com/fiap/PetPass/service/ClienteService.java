@@ -22,5 +22,7 @@ public interface ClienteService {
     ClienteDTO update(ClienteDTO clienteDTO);
 
     void delete(ClienteDTO clienteDTO);
+    
+    void geraCobranca(ClienteDTO clienteDTO);
 
 }
