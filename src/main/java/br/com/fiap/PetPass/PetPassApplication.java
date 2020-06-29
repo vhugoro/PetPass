@@ -1,5 +1,7 @@
 package br.com.fiap.PetPass;
 
+import br.com.fiap.PetPass.dto.SlackMessagesDTO;
+import br.com.fiap.PetPass.utils.SlackUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -14,7 +16,7 @@ public class PetPassApplication extends SpringBootServletInitializer {
 		SpringApplication.run(PetPassApplication.class, args);
 	}
 
-	@Override
+  @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(PetPassApplication.class);
     }
