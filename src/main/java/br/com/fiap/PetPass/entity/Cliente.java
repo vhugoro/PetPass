@@ -1,16 +1,9 @@
 package br.com.fiap.PetPass.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import br.com.fiap.PetPass.enums.PlanoEnum;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import br.com.fiap.PetPass.enums.PlanoEnum;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TB_CLIENTES")
@@ -26,10 +19,10 @@ public class Cliente {
 
     @Column
     private Integer documento;
-    
+
     @Column
     private PlanoEnum plano;
-    
+
     public Long getId() {
         return id;
     }
@@ -53,13 +46,13 @@ public class Cliente {
     public void setDocumento(Integer documento) {
         this.documento = documento;
     }
-    
+
     public PlanoEnum getPlano() {
-    	return plano;
+        return plano;
     }
-    
+
     public void setPlano(PlanoEnum plano) {
-    	this.plano = plano;
+        this.plano = plano;
     }
 
 }

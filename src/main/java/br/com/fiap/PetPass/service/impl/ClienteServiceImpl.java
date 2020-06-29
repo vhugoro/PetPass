@@ -1,10 +1,5 @@
 package br.com.fiap.PetPass.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.com.fiap.PetPass.converter.ClienteConverter;
 import br.com.fiap.PetPass.dto.ClienteDTO;
 import br.com.fiap.PetPass.entity.Cliente;
@@ -12,6 +7,10 @@ import br.com.fiap.PetPass.enums.PlanoEnum;
 import br.com.fiap.PetPass.repository.ClienteRepository;
 import br.com.fiap.PetPass.service.ClienteService;
 import br.com.fiap.PetPass.utils.MessageRabbit;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -41,21 +40,21 @@ public class ClienteServiceImpl implements ClienteService {
     public List<ClienteDTO> findAll() {
         return this.converter.toListDTO(repository.findAll());
     }
-    
+
     @Override
     public ClienteDTO findById(Long id) {
-    	return converter.toDTO(repository.findById(id).orElse(null));
+        return converter.toDTO(repository.findById(id).orElse(null));
     }
 
     @Override
     public ClienteDTO create(ClienteDTO clienteDTO) {
-    	Cliente cliente = this.repository.save(converter.toEntity(clienteDTO));
+        Cliente cliente = this.repository.save(converter.toEntity(clienteDTO));
         return this.converter.toDTO(cliente);
     }
 
     @Override
     public ClienteDTO update(ClienteDTO clienteDTO) {
-    	Cliente cliente = this.repository.save(this.converter.toEntity(clienteDTO));
+        Cliente cliente = this.repository.save(this.converter.toEntity(clienteDTO));
         return this.converter.toDTO(cliente);
     }
 
@@ -66,7 +65,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void geraCobranca(ClienteDTO clienteDTO) {
-    	MessageRabbit message = new MessageRabbit();
-    	message.geraCobranca(clienteDTO);
+        MessageRabbit message = new MessageRabbit();
+        message.geraCobranca(clienteDTO);
     }
 }

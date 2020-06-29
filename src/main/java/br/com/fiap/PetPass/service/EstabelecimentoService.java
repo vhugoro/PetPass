@@ -1,16 +1,16 @@
 package br.com.fiap.PetPass.service;
 
-import java.util.List;
-
 import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
 
+import java.util.List;
+
 public interface EstabelecimentoService {
-	
-	EstabelecimentoDTO find(EstabelecimentoDTO estabelecimento);
 
-	EstabelecimentoDTO findByDocumento(Long documento);
+    EstabelecimentoDTO find(EstabelecimentoDTO estabelecimento);
 
-	EstabelecimentoDTO findByNome(String nomeEstabelecimento);
+    EstabelecimentoDTO findByDocumento(Long documento);
+
+    EstabelecimentoDTO findByNome(String nomeEstabelecimento);
 
     List<EstabelecimentoDTO> findAll();
 
@@ -20,6 +20,6 @@ public interface EstabelecimentoService {
 
     void delete(Long id);
 
-	EstabelecimentoDTO findById(Long id);
+    EstabelecimentoDTO findById(Long id);
 
 }

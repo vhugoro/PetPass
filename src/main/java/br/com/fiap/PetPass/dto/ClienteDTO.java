@@ -1,39 +1,40 @@
 package br.com.fiap.PetPass.dto;
 
-import java.io.Serializable;
-import java.util.StringJoiner;
-
 import br.com.fiap.PetPass.entity.Cliente;
 import br.com.fiap.PetPass.enums.PlanoEnum;
 
-public class ClienteDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
+import java.io.Serializable;
+import java.util.StringJoiner;
 
-	private Long    id;
-    private String  nome;
+public class ClienteDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Long id;
+    private String nome;
     private Integer documento;
     private PlanoEnum plano;
 
-    public ClienteDTO() { }
-
-    public ClienteDTO(String nome ,Integer documento ,PlanoEnum plano) {
-        this.nome      = nome;
-        this.documento = documento;
-        this.plano   = plano;
+    public ClienteDTO() {
     }
 
-    public ClienteDTO(Long id ,String nome ,Integer documento ,PlanoEnum plano) {
-        this.id        = id;
-        this.nome      = nome;
+    public ClienteDTO(String nome, Integer documento, PlanoEnum plano) {
+        this.nome = nome;
         this.documento = documento;
-        this.plano   = plano;
+        this.plano = plano;
+    }
+
+    public ClienteDTO(Long id, String nome, Integer documento, PlanoEnum plano) {
+        this.id = id;
+        this.nome = nome;
+        this.documento = documento;
+        this.plano = plano;
     }
 
     public ClienteDTO(Cliente cliente) {
-        this.id        = cliente.getId();
-        this.nome      = cliente.getNome();
+        this.id = cliente.getId();
+        this.nome = cliente.getNome();
         this.documento = cliente.getDocumento();
-        this.plano     = cliente.getPlano();
+        this.plano = cliente.getPlano();
     }
 
     public Long getId() {
@@ -60,17 +61,17 @@ public class ClienteDTO implements Serializable {
         this.documento = documento;
     }
 
-	public PlanoEnum getPlano() {
-		return plano;
-	}
+    public PlanoEnum getPlano() {
+        return plano;
+    }
 
-	public void setPlano(PlanoEnum plano) {
-		this.plano = plano;
-	}
+    public void setPlano(PlanoEnum plano) {
+        this.plano = plano;
+    }
 
-	@Override
+    @Override
     public String toString() {
-        return new StringJoiner(", " ,ClienteDTO.class.getSimpleName() + "[" ,"]")
+        return new StringJoiner(", ", ClienteDTO.class.getSimpleName() + "[", "]")
                 .add("id=" + id)
                 .add("nome='" + nome + "'")
                 .add("documento=" + documento)
