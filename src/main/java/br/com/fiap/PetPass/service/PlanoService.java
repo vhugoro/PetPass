@@ -1,14 +1,14 @@
 package br.com.fiap.PetPass.service;
 
-import java.util.List;
-
 import br.com.fiap.PetPass.dto.PlanoDTO;
+
+import java.util.List;
 
 public interface PlanoService {
 
-	PlanoDTO findByNome(String nome);
-    
-	PlanoDTO findById(Long id);
+    PlanoDTO findByNome(String nome);
+
+    PlanoDTO findById(Long id);
 
     List<PlanoDTO> findAll();
 

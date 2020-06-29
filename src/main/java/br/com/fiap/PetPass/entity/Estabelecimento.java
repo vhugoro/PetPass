@@ -1,87 +1,80 @@
 package br.com.fiap.PetPass.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import br.com.fiap.PetPass.enums.PlanoEnum;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import br.com.fiap.PetPass.enums.PlanoEnum;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TB_ESTABELECIMENTO")
 @EntityListeners(AuditingEntityListener.class)
 public class Estabelecimento {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	@Column
-	private String nome;
-	
-	@Column
-	private Long documento;
-	
-	@Column
-	private double latitude;
-	
-	@Column
-	private double longitude;
-	
-	@Column
-	private PlanoEnum plano;
 
-	public Long getId() {
-		return id;
-	}
+    @Column
+    private String nome;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column
+    private Long documento;
 
-	public String getNome() {
-		return nome;
-	}
+    @Column
+    private double latitude;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Column
+    private double longitude;
 
-	public Long getDocumento() {
-		return documento;
-	}
+    @Column
+    private PlanoEnum plano;
 
-	public void setDocumento(Long documento) {
-		this.documento = documento;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public double getLatitude() {
-		return latitude;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public double getLongitude() {
-		return longitude;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
+    public Long getDocumento() {
+        return documento;
+    }
 
-	public PlanoEnum getPlano() {
-		return plano;
-	}
+    public void setDocumento(Long documento) {
+        this.documento = documento;
+    }
 
-	public void setPlano(PlanoEnum plano) {
-		this.plano = plano;
-	}
-	
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public PlanoEnum getPlano() {
+        return plano;
+    }
+
+    public void setPlano(PlanoEnum plano) {
+        this.plano = plano;
+    }
+
 }

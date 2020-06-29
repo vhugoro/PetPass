@@ -1,43 +1,48 @@
 package br.com.fiap.PetPass.utils;
 
 import br.com.fiap.PetPass.dto.SlackMessagesDTO;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import com.google.gson.Gson;
+import okhttp3.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
 
+@Component
 public class SlackUtils {
-    private static String slackWebhookUrl = "https://hooks.slack.com/services/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";
 
-    public static void sendMessage(SlackMessagesDTO message) {
-        CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(slackWebhookUrl);
+    @Autowired
+    Environment environment;
 
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writeValueAsString(message);
+    public void sendMessage(SlackMessagesDTO message) throws IOException {
+        OkHttpClient client2 = new OkHttpClient();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, new Gson().toJson(message));
 
-            StringEntity entity = new StringEntity(json);
-            httpPost.setEntity(entity);
-            httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Content-type", "application/json");
-
-            client.execute(httpPost);
-            client.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Request request2 = new Request.Builder()
+                .url(new URL(environment.getProperty("slack.webhook.url")))
+                .post(body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Host", "hooks.slack.com")
+                .addHeader("accept-encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .addHeader("cache-control", "no-cache")
+                .build();
+        Response response2 = client2.newCall(request2).execute();
     }
 
-    public static void sendMessage(String inChannel, String inText) {
+    public void sendMessage(String inChannel, String inText) throws IOException {
         SlackMessagesDTO slackMessage = SlackMessagesDTO.builder()
                 .channel(inChannel)
+                .username("PetBot =^.^=")
                 .text(inText)
+                .icon_emoji(":slightly_smiling_face:")
                 .build();
 
-        SlackUtils.sendMessage(slackMessage);
+        sendMessage(slackMessage);
     }
 }

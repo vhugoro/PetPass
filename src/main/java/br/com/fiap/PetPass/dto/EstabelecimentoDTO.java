@@ -1,97 +1,98 @@
 package br.com.fiap.PetPass.dto;
 
-import java.io.Serializable;
-
 import br.com.fiap.PetPass.entity.Estabelecimento;
 import br.com.fiap.PetPass.enums.PlanoEnum;
 
+import java.io.Serializable;
+
 public class EstabelecimentoDTO implements Serializable {
 
-	private static final long serialVersionUID = 8749950324503171310L;
-	
-	private Long id;
-	private String nome;
-	private Long documento;
-	private double latitude;
-	private double longitude;
-	private PlanoEnum plano;
-	
-	public EstabelecimentoDTO() { }
-	
-	public EstabelecimentoDTO(Long id, String nome, Long documento, double latitude, double longitude,
-			PlanoEnum plano) {
-		this.id = id;
-		this.nome = nome;
-		this.documento = documento;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.plano = plano;
-	}
+    private static final long serialVersionUID = 8749950324503171310L;
 
-	public EstabelecimentoDTO(String nome, Long documento, double latitude, double longitude,
-			PlanoEnum plano) {
-		this.nome = nome;
-		this.documento = documento;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.plano = plano;
-	}
+    private Long id;
+    private String nome;
+    private Long documento;
+    private double latitude;
+    private double longitude;
+    private PlanoEnum plano;
 
-	public EstabelecimentoDTO(Estabelecimento estabelecimento) {
-		this.id = estabelecimento.getId();
-		this.nome = estabelecimento.getNome();
-		this.documento = estabelecimento.getDocumento();
-		this.latitude = estabelecimento.getLatitude();
-		this.longitude = estabelecimento.getLongitude();
-		this.plano = estabelecimento.getPlano();
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    public EstabelecimentoDTO() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public EstabelecimentoDTO(Long id, String nome, Long documento, double latitude, double longitude,
+                              PlanoEnum plano) {
+        this.id = id;
+        this.nome = nome;
+        this.documento = documento;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.plano = plano;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public EstabelecimentoDTO(String nome, Long documento, double latitude, double longitude,
+                              PlanoEnum plano) {
+        this.nome = nome;
+        this.documento = documento;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.plano = plano;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public EstabelecimentoDTO(Estabelecimento estabelecimento) {
+        this.id = estabelecimento.getId();
+        this.nome = estabelecimento.getNome();
+        this.documento = estabelecimento.getDocumento();
+        this.latitude = estabelecimento.getLatitude();
+        this.longitude = estabelecimento.getLongitude();
+        this.plano = estabelecimento.getPlano();
+    }
 
-	public Long getDocumento() {
-		return documento;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setDocumento(Long documento) {
-		this.documento = documento;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public double getLatitude() {
-		return latitude;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public double getLongitude() {
-		return longitude;
-	}
+    public Long getDocumento() {
+        return documento;
+    }
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
+    public void setDocumento(Long documento) {
+        this.documento = documento;
+    }
 
-	public PlanoEnum getPlano() {
-		return plano;
-	}
+    public double getLatitude() {
+        return latitude;
+    }
 
-	public void setPlano(PlanoEnum plano) {
-		this.plano = plano;
-	}
-	
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public PlanoEnum getPlano() {
+        return plano;
+    }
+
+    public void setPlano(PlanoEnum plano) {
+        this.plano = plano;
+    }
+
 }
