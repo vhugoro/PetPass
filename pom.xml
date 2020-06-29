@@ -60,9 +60,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.197</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
         </dependency>
 
 		<dependency>
@@ -83,7 +82,6 @@
             <version>2.9.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -96,7 +94,6 @@
             <version>LATEST</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
