@@ -32,12 +32,10 @@ public class SlackUtils {
         }
     }
 
-    private static void sendMessage(String inChannel, String inText) {
+    public static void sendMessage(String inChannel, String inText) {
         SlackMessagesDTO slackMessage = SlackMessagesDTO.builder()
-                .channel("petpass")
-                .username("PetBot =^.^=")
-                .text("just testing")
-                .icon_emoji(":twice:")
+                .channel(inChannel)
+                .text(inText)
                 .build();
 
         SlackUtils.sendMessage(slackMessage);
