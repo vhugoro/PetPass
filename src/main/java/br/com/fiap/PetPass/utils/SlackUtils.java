@@ -31,4 +31,15 @@ public class SlackUtils {
             e.printStackTrace();
         }
     }
+
+    private static void sendMessage(String inChannel, String inText) {
+        SlackMessagesDTO slackMessage = SlackMessagesDTO.builder()
+                .channel("petpass")
+                .username("PetBot =^.^=")
+                .text("just testing")
+                .icon_emoji(":twice:")
+                .build();
+
+        SlackUtils.sendMessage(slackMessage);
+    }
 }
