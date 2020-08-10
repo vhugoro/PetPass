@@ -1,11 +1,11 @@
 package br.com.fiap.PetPass.dto;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 @AllArgsConstructor
 @Builder(builderClassName = "Builder")

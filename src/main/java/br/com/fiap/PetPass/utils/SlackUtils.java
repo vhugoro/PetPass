@@ -1,14 +1,20 @@
 package br.com.fiap.PetPass.utils;
 
-import br.com.fiap.PetPass.dto.SlackMessagesDTO;
+import java.io.IOException;
+import java.net.URL;
+
 import com.google.gson.Gson;
-import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.net.URL;
+import br.com.fiap.PetPass.dto.SlackMessagesDTO;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 @Component
 public class SlackUtils {

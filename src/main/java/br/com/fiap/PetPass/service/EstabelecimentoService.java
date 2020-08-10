@@ -1,8 +1,8 @@
 package br.com.fiap.PetPass.service;
 
-import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
-
 import java.util.List;
+
+import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
 
 public interface EstabelecimentoService {
 

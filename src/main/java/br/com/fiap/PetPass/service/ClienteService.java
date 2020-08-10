@@ -1,9 +1,9 @@
 package br.com.fiap.PetPass.service;
 
+import java.util.List;
+
 import br.com.fiap.PetPass.dto.ClienteDTO;
 import br.com.fiap.PetPass.enums.PlanoEnum;
-
-import java.util.List;
 
 public interface ClienteService {
 

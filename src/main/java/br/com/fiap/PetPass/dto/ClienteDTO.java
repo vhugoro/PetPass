@@ -1,10 +1,10 @@
 package br.com.fiap.PetPass.dto;
 
-import br.com.fiap.PetPass.entity.Cliente;
-import br.com.fiap.PetPass.enums.PlanoEnum;
-
 import java.io.Serializable;
 import java.util.StringJoiner;
+
+import br.com.fiap.PetPass.entity.Cliente;
+import br.com.fiap.PetPass.enums.PlanoEnum;
 
 public class ClienteDTO implements Serializable {
     private static final long serialVersionUID = 1L;

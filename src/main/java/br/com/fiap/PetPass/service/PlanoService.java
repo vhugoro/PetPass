@@ -1,8 +1,8 @@
 package br.com.fiap.PetPass.service;
 
-import br.com.fiap.PetPass.dto.PlanoDTO;
-
 import java.util.List;
+
+import br.com.fiap.PetPass.dto.PlanoDTO;
 
 public interface PlanoService {
 

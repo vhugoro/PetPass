@@ -1,9 +1,9 @@
 package br.com.fiap.PetPass.dto;
 
-import br.com.fiap.PetPass.entity.Plano;
-
 import java.io.Serializable;
 import java.util.StringJoiner;
+
+import br.com.fiap.PetPass.entity.Plano;
 
 public class PlanoDTO implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -1,12 +1,13 @@
 package br.com.fiap.PetPass.converter;
 
-import br.com.fiap.PetPass.dto.ClienteDTO;
-import br.com.fiap.PetPass.entity.Cliente;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import br.com.fiap.PetPass.dto.ClienteDTO;
+import br.com.fiap.PetPass.entity.Cliente;
 
 @Service
 public class ClienteConverter {
@@ -27,7 +28,6 @@ public class ClienteConverter {
                     .map(this::toDTO)
                     .collect(Collectors.toList()));
         }
-
 
         return clientes;
     }

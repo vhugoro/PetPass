@@ -1,5 +1,10 @@
 package br.com.fiap.PetPass.service.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.fiap.PetPass.converter.ClienteConverter;
 import br.com.fiap.PetPass.dto.ClienteDTO;
 import br.com.fiap.PetPass.entity.Cliente;
@@ -7,10 +12,6 @@ import br.com.fiap.PetPass.enums.PlanoEnum;
 import br.com.fiap.PetPass.repository.ClienteRepository;
 import br.com.fiap.PetPass.service.ClienteService;
 import br.com.fiap.PetPass.utils.MessageRabbit;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -49,12 +50,14 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public ClienteDTO create(ClienteDTO clienteDTO) {
         Cliente cliente = this.repository.save(converter.toEntity(clienteDTO));
+
         return this.converter.toDTO(cliente);
     }
 
     @Override
     public ClienteDTO update(ClienteDTO clienteDTO) {
         Cliente cliente = this.repository.save(this.converter.toEntity(clienteDTO));
+
         return this.converter.toDTO(cliente);
     }
 

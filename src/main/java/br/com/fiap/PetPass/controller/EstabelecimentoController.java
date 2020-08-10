@@ -1,16 +1,25 @@
 package br.com.fiap.PetPass.controller;
 
-import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
-import br.com.fiap.PetPass.service.EstabelecimentoService;
-import br.com.fiap.PetPass.utils.SlackUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
+import br.com.fiap.PetPass.service.EstabelecimentoService;
+import br.com.fiap.PetPass.utils.SlackUtils;
 
 @RestController
 @RequestMapping("estabelecimentos")
@@ -40,6 +49,7 @@ public class EstabelecimentoController {
         if (estabelecimento != null) {
             return ResponseEntity.ok(estabelecimento);
         }
+
         return ResponseEntity.notFound().build();
     }
 
@@ -69,7 +79,9 @@ public class EstabelecimentoController {
     public ResponseEntity<EstabelecimentoDTO> create(@RequestBody EstabelecimentoDTO estabelecimento) throws IOException {
         EstabelecimentoDTO estabelecimentoDTO = this.service.create(estabelecimento);
 
-        utils.sendMessage("petpass", "Place [" + estabelecimento.getId() + "] " + estabelecimento.getNome() + " created successfully at " + LocalDateTime.now());
+        utils.sendMessage("petpass"
+                         ,"Place [" + estabelecimento.getId() + "] " + estabelecimento.getNome()
+                         + " created successfully at " + LocalDateTime.now());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(estabelecimentoDTO);
     }
@@ -89,7 +101,9 @@ public class EstabelecimentoController {
 
         this.service.delete(id);
 
-        utils.sendMessage("petpass", "Place [" + estabelecimento.getId() + "] " + estabelecimento.getNome() + " deleted successfully at " + LocalDateTime.now());
+        utils.sendMessage("petpass"
+                         ,"Place [" + estabelecimento.getId() + "] " + estabelecimento.getNome()
+                         + " deleted successfully at " + LocalDateTime.now());
 
         return ResponseEntity.ok(id);
     }

@@ -1,12 +1,13 @@
 package br.com.fiap.PetPass.converter;
 
-import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
-import br.com.fiap.PetPass.entity.Estabelecimento;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import br.com.fiap.PetPass.dto.EstabelecimentoDTO;
+import br.com.fiap.PetPass.entity.Estabelecimento;
 
 @Service
 public class EstabelecimentoConverter {
@@ -15,6 +16,7 @@ public class EstabelecimentoConverter {
         if (estabelecimento == null) {
             return null;
         }
+
         return new EstabelecimentoDTO(estabelecimento);
     }
 

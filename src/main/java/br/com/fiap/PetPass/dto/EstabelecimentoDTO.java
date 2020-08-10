@@ -1,9 +1,9 @@
 package br.com.fiap.PetPass.dto;
 
+import java.io.Serializable;
+
 import br.com.fiap.PetPass.entity.Estabelecimento;
 import br.com.fiap.PetPass.enums.PlanoEnum;
-
-import java.io.Serializable;
 
 public class EstabelecimentoDTO implements Serializable {
 
