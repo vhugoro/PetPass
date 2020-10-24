@@ -1,0 +1,34 @@
+version: '3'
+services:
+  visualizador:
+    image: dockersamples/visualizer
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+    - 8081:8080
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  app:
+    image: cazanchetta/petpass:latest
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    networks:
+      - net
+    ports:
+      - 8080:8080
+
+  #serão implementados os demais serviços quando fizermos a separação dos microserviços
+  #appservice2:
+
+  #será implementado o servico de consumo da fila
+  #appcobranca:
+
+networks:
+  net:
+    external: true
